@@ -22,8 +22,9 @@
 
 [//]: # (Image References)
 
-[image1]: ./misc/nb_img1.jpg
-[image2]: ./misc/nb_img2.jpg
+[image1]: ./misc/nb_img1.JPG
+[image2]: ./misc/nb_img2.JPG
+[image2]: ./misc/nb_img3.JPG
 [grid]: ./calibration_images/example_grid1.jpg
 [rock]: ./calibration_images/example_rock1.jpg 
 
@@ -44,9 +45,16 @@ This part is basically a summary of the important functions needed to complete t
 
 The first modification I made is in the **Perspective Transformation** section shown in the image below.
 
-![alt text][image1]
+![Figure 1][image1]
 
-The highlighted line of code creates a mask from the warped image which basically
+The highlighted line of code creates a mask from the warped image which basically helps cancel out the area that isn't visible on the camera's perspective, shown on the image below.
+
+![Figure 2][image2]
+
+The next modification I did was create a function that finds rocks on an image. 
+The function is basically a clone of the **color_thresh** function but with a different color threshold which is in the shade of dark yellow/gold. The result is shown on the image below.
+
+![Figure 3][image3]
 
 #### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
 And another! 
