@@ -68,15 +68,15 @@ The function is basically a clone of the **color_thresh** function but with a di
 
 This is the most challenging part of the notebook because this is where all the necessary functions come together to create the frames for the 3-panel video output.
 
-I'm going to go through the important steps produce an outcome.
+I'm going to go through the important steps to produce an outcome.
 
     warped, mask = perspect_transform(img, source, destination)
     threshed = color_thresh(warped)
     obs_map = np.absolute(np.float32(threshed) - 1) * mask
 
 First, I simply called the **perspect_transform** function and stored the returned values in *warped* and *mask* variables
-(The *source* and *destination* variables I used were already defined previously in the **Perspective Transformation** section).
-Then, I identified the navigable terrain in the *warped* image using the **color_thresh** function then combined opposite of the output with the *mask* to create a map of the obstacles called *obs_map*
+(The *source* and *destination* variables I used were already defined previously in the **Perspective Transformation** section). 
+Then, I identified the navigable terrain in the *warped* image using the **color_thresh** function then combined the opposite of the output with the *mask* to create a map of the obstacles called *obs_map*
 
     xpix, ypix = rover_coords(threshed)
     
@@ -106,7 +106,7 @@ The obstacles are red.
 
 The last part of the function is already given which is just creating the 3-panel frame output for the video.
 
-The output video is saved as *mapping.mp4*
+The output video is saved in the *output* folder as *mapping.mp4*
 
 ### Autonomous Navigation and Mapping
 
@@ -158,9 +158,9 @@ For the **decision_step**, I adjusted the threshold on which the rover should st
 
 I have successfully achieved the minimum of **40%** environment mapped with **60%** fidelity. The rover can also map all rocks found, not just one. A screen capture is shown below.
 
-![Figure 3][image_3]
+![Figure 3][image3]
 
-One noticeable problem that I encountered in autonomous mode is the rover tend to go in circles on a certain part of the map. I think this is because the navigable area becomes almost identical anywhere the rover faces. I would probably solve this by detecting whether the rover has gone on a circle and then suggest a  direction on where it could go, taking into consideration whether it has been visited or not.
+One noticeable problem that I encountered in autonomous mode is the rover tend to go in circles on a certain part of the map. I think this is because the navigable area in the rover's vision, becomes almost the same anywhere the rover faces. I would probably solve this by detecting whether the rover has gone on a circle and then suggest a direction on where it could go, taking into consideration whether it has been visited or not.
 
 There are still a lot to work on this particular project, including the picking up of rocks, and I'm definitely excited to work on it on my free time.
 
