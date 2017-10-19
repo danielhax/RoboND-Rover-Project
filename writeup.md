@@ -37,6 +37,8 @@
 
 You're reading it!
 
+**Disclaimer**: This project was done with the assistance from the walkthrough provided in the course.
+
 ### Notebook Analysis
 #### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data you have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.
 
